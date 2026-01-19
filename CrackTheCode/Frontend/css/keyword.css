@@ -1,0 +1,508 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #060F4F;
+  background-image:
+  linear-gradient(45deg, rgba(255,255,255,0.015) 25%, transparent 25%),
+  linear-gradient(-45deg, rgba(255,255,255,0.015) 25%, transparent 25%),
+  linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.015) 75%),
+  linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.015) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  color: white;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title-image {
+  width: 900px;
+  max-width: 90%;
+  margin: 0 auto 20px;
+  margin-top: -20px;
+  margin-left: 80px;
+}
+
+.topic-buttons {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+.topic-buttons button {
+  background: linear-gradient(145deg, #9F2B1F, #C14435);
+  border: none;
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: 300px;
+  min-height: 180px;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.topic-buttons button:hover {
+  background: #661b0a;
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.topic-buttons .icon {
+  font-size: 4em;
+  margin-bottom: 12px;
+}
+
+.selected-topic {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+}
+
+.game-box {
+  background-color: rgba(17, 45, 106, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px auto;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  display: none;
+  position: relative;
+  max-width: 900px;  
+  width: 100%; 
+  text-align: center;   
+  margin-top: -20px;   
+}
+
+.cipher-icon-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.8em;
+  background: transparent;
+  border: none;
+  color: #00CFFF;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cipher-icon-btn:hover {
+  transform: scale(1.2);
+  color: #00AAFF;
+}
+
+.cipher-block {
+  background-color: rgba(255, 255, 255, 0.08); 
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cipher-row {
+  justify-content: center;
+}
+
+
+.shift-info {
+  font-size: 1.1em;
+  color: #00CFFF;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.encrypted-word {
+  font-size: 2em;
+  color: #FFD700;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 1em;
+  color: #FFA500;
+  margin-bottom: 20px;
+}
+
+.input-area input {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border: 2px solid #00CFFF;
+  border-radius: 10px;
+  width: 60%;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #9F2B1F;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px 30px;
+  font-size: 1em;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #661b0a;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.stars {
+  text-align: right;
+  font-size: 2em;
+}
+
+.game-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 10px;
+  margin-top: -15px;
+}
+
+.hint-btn {
+  margin-top: 3px;
+  background: none;
+  border: none;
+  font-size: 1.7em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hint-btn:hover{
+  transform: scale(1.2);
+}
+
+.hint {
+  font-style: italic;
+  font-size: 16px;
+}
+
+
+.progress-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.progress-bar-wrapper {
+  position: relative;
+  width: 80%;
+  height: 30px;
+  background-color: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #FFD700;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(to right, #00FF99, #00CFFF);
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.flag-image {
+  width: 40px;
+  margin-left: 10px;
+}
+
+  #successModal, #gameOverModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameOverModal .modal-content {
+  background-color: #112D6A;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+}
+
+#gameOverModal button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: #9F2B1F;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#gameOverModal h2 {
+  color: #FFD700;
+}
+
+#gameOverModal p {
+  color: #FFDD99;
+}
+
+#successModal .modal-content {
+  background-color: #112D6A;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+}
+
+#successModal button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: #9F2B1F;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#successModal h2 {
+  color: #FFD700;
+}
+
+#successModal p {
+  color: #FFDD99;
+}
+.exit-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.1em;
+  background-color: transparent;
+  border: 2px solid #FF4D4D;
+  color: #FF4D4D;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.exit-btn:hover {
+  background-color: #FF4D4D;
+  color: white;
+}
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #FFD700;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.2);
+  color: #FFFFFF;
+}
+.howtoplay-btn {
+  position: absolute;
+  top: 20px; 
+  right: 20px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #00CFFF;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.howtoplay-btn:hover {
+  transform: scale(1.2);
+  color: #FFD700;
+}
+
+#howToPlayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-hidden {
+  display: none;
+}
+
+.modal-visible {
+  display: flex;
+}
+
+
+#howToPlayModal .modal-content {
+  background-color: #112D6A;
+  color: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: left;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  font-size: 1em;
+}
+
+#howToPlayModal .modal-content h2, 
+#howToPlayModal .modal-content h3 {
+  color: #FFD700;
+}
+
+#howToPlayModal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #FFDD99;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap; 
+  overflow: hidden;
+  word-wrap: break-word; 
+  margin: 0;
+}
+
+.cipher-row {
+  display: grid;
+  grid-template-columns: repeat(26, 24px);
+  gap: 5.5px;
+  margin-bottom: 12px;
+}
+
+.cipher-box {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+  font-size: 12px;
+  background-color: #8d8d8d7f;
+  line-height: 24px;
+  pointer-events: none; 
+  user-select: none;
+}
+
+.cipher-input {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  font-weight: bold;
+  border: NONE;
+  background-color: #8d8d8d7f;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 12px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+.top-left-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.encryptedword {
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+#exitModal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+#exitModal .modal-content {
+  background-color: #112D6A;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+#exitModal {
+  display: none;
+}
+
+#exitModal button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: #9F2B1F;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+body {
+    background-color: #08136F;
+    font-family: "Itim", sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.titlelight{
+    background-image: url("http://localhost/CrackTheCode/Image/bglight.png");
+    background-size: cover;
+    text-align: center;
+    min-height: 100vh; 
+    align-items: center; 
+    z-index: -1;
+}
+
+.start-button{
+    margin-top: 40px;
+    font-size: 40px;
+    color: #FFFFFF;
+    background-color: #9E2A10;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    width: 270px;
+    font-weight: bold;
+}
+
+.start-button:hover {
+    background-color: #661b0a;
+}
+
+.overlay-design {
+    position: absolute;
+    width: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.circle-wrapper {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rotating-inner {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: rotate 20s linear infinite;
+    transform-origin: center center;
+}
+
+.rotate-left {
+    animation-name: rotate-counter;
+    margin-left: -580px;
+}
+
+.rotate-right {
+    animation-name: rotate-clockwise;
+    margin-left: 650px;
+}
+
+
+@keyframes rotate-clockwise {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-counter {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
